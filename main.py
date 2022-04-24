@@ -43,21 +43,26 @@ if ls == "2":
 if ls == "1":
   uname = input("Username: ")
   pword = input("Password: ")
+  
   if uname+"password" not in db.keys():
     print("Account Does Not Exist")
-    
+  
   elif db[uname+"password"] == pword:
     print("Logged In")
     db[uname] = uname
+  elif db[uname+"password"] != pword:
+    print("PassWord Incorrect")
+    exit()
+    
 
 coinfound = False
 def menu():
-  print("1: Mine 2: Transfer 3: Account Info 4: Log Out")
+  print("1: Mine 2: Transfer 3: Account Info & Balance 4: Log Out")
   mtl = input()
   def SHA256(text):
     return sha256(text.encode("ascii")).hexdigest()
     MAX_NONCE=10000000
-  coins = [SHA256(os.environ['originalcoin']), SHA256(os.environ['coin2']), SHA256(os.environ['coin3']), SHA256(os.environ['coin4']), SHA256(os.environ['coin5']), SHA256(os.environ['coin6']), SHA256(os.environ['coin7']), SHA256(os.environ['coin8']), SHA256(os.environ['coin9']), SHA256(os.environ['testcoin'])]
+  coins = [SHA256(os.environ['originalcoin']), SHA256(os.environ['coin2']), SHA256(os.environ['coin3']), SHA256(os.environ['coin4']), SHA256(os.environ['coin5']), SHA256(os.environ['coin6']), SHA256(os.environ['coin7']), SHA256(os.environ['coin8']), SHA256(os.environ['coin9'])]
 
   
   if mtl == "1":
@@ -80,8 +85,8 @@ def menu():
       db[uname+"amount"] -= transferamt
       db[transferacc+"amount"] += transferamt
   elif mtl == "3":
-    amountstr = "amount"
-    print(f"Account Info\nUsername: {uname}\nAmount Of Goose Coin: {db[uname+amountstr]}")
+    unameamount = uname+"amount"
+    print(f"Account Info\nUsername: {uname}\nAmount Of Goose Coin: {str(db[unameamount])}")
   elif mtl == "4":
     print("Logging Out")
     time.sleep(2)

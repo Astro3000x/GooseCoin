@@ -1,5 +1,7 @@
 # Goose Coin #
+
 ![goosecoin](goose.png)
+
 Please Note That GooseCoin Has Little Or No Value
 Trading Of GooseCoin Is Not Prohibited By Astro3000
 
