@@ -94,6 +94,8 @@ def menu():
     if transferacc in db.keys():
       db[uname+"amount"] -= transferamt
       db[transferacc+"amount"] += transferamt
+    else:
+      print("User Does Not Exist")
   elif mtl == "3":
     unameamount = uname+"amount"
     print(f"Account Info\nUsername: {uname}\nAmount Of Goose Coin: {str(db[unameamount])}")
