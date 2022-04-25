@@ -5,7 +5,7 @@ from replit import db
 import time
 import random
 print("Goose Coin Crypto")
-print('''🌳⚪🌕🌚🌚🐘🌚🐘⚪⚪⚪⚪⚪⚪🌕⚪⚪⚪⚪⚪⚪⚪⚪🌕
+print('''🌳⚪🌕🌚🌚🐘🌚🐘⚪⚪⚪⚪⚪⚪🌕⚪⚪⚪⚪⚪⚪⚪⚪
 🌕💼🙊🙊🌕🌕⚫🌕⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪🌕
 🌕💼🍊🙊🌕⚪🐘🌚🌚⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪🌕
 ⚪🌚💼🌚⚫⚪⚪🌚🌕⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪🌕
@@ -26,7 +26,7 @@ print('''🌳⚪🌕🌚🌚🐘🌚🐘⚪⚪⚪⚪⚪⚪🌕⚪⚪⚪⚪⚪⚪
 ⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪🍑🍪⚪⚪⚪⚪🍪⚪⚪⚪⚪🌕
 ⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪🍪🍪📀⚪⚪🍪⚪⚪⚪⚪🌕
 ⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪🍪💰🍑🍪⚪🍪🍪⚪⚪⚪⚪🌕
-⚪🍐🍐🍐🍐🍐🍐🍐🍐🍐⚪⚪🌕⚪🍪⚪🍪🍪🍪⚪🌚🌚🌕⚫''')
+⚪🍐🍐🍐🍐🍐🍐🍐🍐🍐⚪⚪🌕⚪🍪⚪🍪🍪🍪⚪🌚🌚🌕''')
 print("1: Log In 2: Sign Up")
 ls = input()
 if ls == "2":
@@ -47,6 +47,7 @@ if ls == "1":
   
   if uname+"password" not in db.keys():
     print("Account Does Not Exist")
+    exit()
   
   elif db[uname+"password"] == pword:
     print("Logged In")
@@ -58,7 +59,7 @@ if ls == "1":
 
 coinfound = False
 def menu():
-  print("1: Mine 2: Transfer 3: Account Info & Balance 4: Log Out")
+  print("1: Mine 2: Transfer 3: Account Info & Balance 4: Change Password 5: Log Out")
   mtl = input()
   def SHA256(text):
     return sha256(text.encode("ascii")).hexdigest()
@@ -97,6 +98,22 @@ def menu():
     unameamount = uname+"amount"
     print(f"Account Info\nUsername: {uname}\nAmount Of Goose Coin: {str(db[unameamount])}")
   elif mtl == "4":
+    print("Enter Previous Password:")
+    pre1 = input()
+    print("Confirm Previous Password:")
+    pre2 = input()
+    if pre1 == pre2:
+      if pre1 == db[uname+"password"]:
+        print("Passwords correct. New password:")
+        new1 = input()
+        print("Confirm New Password:")
+        new2 = input()
+        if new1 == new2:
+          db[uname+"password"] = new1
+          print("Password Changed.")
+    else:
+      print("Passwords do not match.")
+  elif mtl == "5":
     print("Logging Out")
     time.sleep(2)
     exit()
