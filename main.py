@@ -3,6 +3,7 @@ from bitcoin import *
 from hashlib import sha256
 from replit import db
 import time
+import random
 print("Goose Coin Crypto")
 print('''🌳⚪🌕🌚🌚🐘🌚🐘⚪⚪⚪⚪⚪⚪🌕⚪⚪⚪⚪⚪⚪⚪⚪🌕
 🌕💼🙊🙊🌕🌕⚫🌕⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪🌕
@@ -73,6 +74,14 @@ def menu():
         print("Coin Found!")
         db[uname+"amount"] += 1
         db[uname+"key"+str(db[uname+"amount"])] = str(found)
+        os.environ['coin2'] = random.randint(1, 100000000)
+        os.environ['coin3'] = random.randint(1, 100000000)
+        os.environ['coin4'] = random.randint(1, 100000000)
+        os.environ['coin5'] = random.randint(1, 100000000)
+        os.environ['coin6'] = random.randint(1, 100000000)
+        os.environ['coin7'] = random.randint(1, 100000000)
+        os.environ['coin8'] = random.randint(1, 100000000)
+        os.environ['coin9'] = random.randint(1, 100000000)
         
         break
   elif mtl == "2":
@@ -92,19 +101,5 @@ def menu():
     time.sleep(2)
     exit()
     
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
-menu()
+while 1 == 1:
+  menu()
