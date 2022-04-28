@@ -75,14 +75,14 @@ def menu():
         print("Coin Found!")
         db[uname+"amount"] += 1
         db[uname+"key"+str(db[uname+"amount"])] = str(found)
-        os.environ['coin2'] = random.randint(1, 100000000)
-        os.environ['coin3'] = random.randint(1, 100000000)
-        os.environ['coin4'] = random.randint(1, 100000000)
-        os.environ['coin5'] = random.randint(1, 100000000)
-        os.environ['coin6'] = random.randint(1, 100000000)
-        os.environ['coin7'] = random.randint(1, 100000000)
-        os.environ['coin8'] = random.randint(1, 100000000)
-        os.environ['coin9'] = random.randint(1, 100000000)
+        os.environ['coin2'] = str(random.randint(1, 1000000))
+        os.environ['coin3'] = str(random.randint(1, 1000000))
+        os.environ['coin4'] = str(random.randint(1, 1000000))
+        os.environ['coin5'] = str(random.randint(1, 1000000))
+        os.environ['coin6'] = str(random.randint(1, 1000000))
+        os.environ['coin7'] = str(random.randint(1, 1000000))
+        os.environ['coin8'] = str(random.randint(1, 1000000))
+        os.environ['coin9'] = str(random.randint(1, 1000000))
         
         break
   elif mtl == "2":
