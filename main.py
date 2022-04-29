@@ -41,7 +41,7 @@ if ls == "2":
   else:
     print("UserName Already Taken")
     exit()
-if ls == "1":
+elif ls == "1":
   uname = input("Username: ")
   pword = input("Password: ")
   
@@ -56,7 +56,9 @@ if ls == "1":
     print("PassWord Incorrect")
     exit()
     
-
+else:
+  print("Please Choose 1 or 2")
+  exit()
 coinfound = False
 def menu():
   print("1: Mine 2: Transfer 3: Account Info & Balance 4: Change Password 5: Log Out")
@@ -64,7 +66,7 @@ def menu():
   def SHA256(text):
     return sha256(text.encode("ascii")).hexdigest()
     MAX_NONCE=10000000
-  coins = [SHA256(os.environ['originalcoin']), SHA256(os.environ['coin2']), SHA256(os.environ['coin3']), SHA256(os.environ['coin4']), SHA256(os.environ['coin5']), SHA256(os.environ['coin6']), SHA256(os.environ['coin7']), SHA256(os.environ['coin8']), SHA256(os.environ['coin9'])]
+  coins = [SHA256(os.environ['coin2']), SHA256(os.environ['coin3']), SHA256(os.environ['coin4']), SHA256(os.environ['coin5']), SHA256(os.environ['coin6']), SHA256(os.environ['coin7']), SHA256(os.environ['coin8']), SHA256(os.environ['coin9'])]
 
   
   if mtl == "1":
@@ -75,46 +77,9 @@ def menu():
         print("Coin Found!")
         
         db[uname+"key"+str(db[uname+"amount"])] = str(found)
-        if found == os.environ['coin2']:
-          
-          os.environ['coin2'] = str(random.randint(1, 1000000))
-          coins[0] = str(random.randint(1, 1000000))
-        elif os.environ['coin3'] == found:
-          db[uname+os.environ['coin3']] = True
-          db[uname+"amount"] += 1
-          os.environ['coin3'] = str(random.randint(1, 1000000))
-          coins[1] = str(random.randint(1, 1000000))
-        elif os.environ['coin4'] == found:
-          db[uname+os.environ['coin4']] = True
-          db[uname+"amount"] += 1
-          os.environ['coin4'] = str(random.randint(1, 1000000))
-          coins[2] = str(random.randint(1, 1000000))
-        elif os.environ['coin5'] == found:
-          db[uname+os.environ['coin5']] = True
-          db[uname+"amount"] += 1
-          os.environ['coin5'] = str(random.randint(1, 1000000))
-          coins[3] = str(random.randint(1, 1000000))
-        elif os.environ['coin6'] == found:
-          db[uname+os.environ['coin6']] = True
-          db[uname+"amount"] += 1
-          os.environ['coin6'] = str(random.randint(1, 1000000))
-          coins[4] = str(random.randint(1, 1000000))
-        elif os.environ['coin7'] == found:
-          db[uname+os.environ['coin7']] = True
-          db[uname+"amount"] += 1
-          os.environ['coin7'] = str(random.randint(1, 1000000))
-          coins[5] = str(random.randint(1, 1000000))
-        elif os.environ['coin8'] == found:
-          db[uname+os.environ['coin8']] = True
-          db[uname+"amount"] += 1
-          os.environ['coin8'] = str(random.randint(1, 1000000))
-          coins[6] = str(random.randint(1, 1000000))
-        elif os.environ['coin9'] == found:
-          db[uname+os.environ['coin9']] = True
-          db[uname+"amount"] += 1
-          os.environ['coin9'] = str(random.randint(1, 1000000))
-          coins[7] = str(random.randint(1, 1000000))
         
+        db[uname+"amount"] += 1
+        os.environ["coin2"] = str(random.randint(1, 100000000000))
         break
   elif mtl == "2":
     
