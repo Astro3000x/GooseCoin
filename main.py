@@ -73,17 +73,41 @@ def menu():
       found = SHA256(str(i))
       if found in coins:
         print("Coin Found!")
-        db[uname+"amount"] += 1
-        db[uname+"key"+str(db[uname+"amount"])] = str(found)
-        os.environ['coin2'] = str(random.randint(1, 1000000))
-        os.environ['coin3'] = str(random.randint(1, 1000000))
-        os.environ['coin4'] = str(random.randint(1, 1000000))
-        os.environ['coin5'] = str(random.randint(1, 1000000))
-        os.environ['coin6'] = str(random.randint(1, 1000000))
-        os.environ['coin7'] = str(random.randint(1, 1000000))
-        os.environ['coin8'] = str(random.randint(1, 1000000))
-        os.environ['coin9'] = str(random.randint(1, 1000000))
         
+        db[uname+"key"+str(db[uname+"amount"])] = str(found)
+        if found == os.environ['coin2'] and db[uname+os.environ['coin2']] not in db.keys():
+          
+          os.environ['coin2'] = str(random.randint(1, 1000000))
+        elif os.environ['coin3'] == found and db[uname+os.environ['coin3']] not in db.keys():
+          db[uname+os.environ['coin3']] = True
+          db[uname+"amount"] += 1
+          os.environ['coin3'] = str(random.randint(1, 1000000))
+        elif os.environ['coin4'] == found and db[uname+os.environ['coin4']] not in db.keys():
+          db[uname+os.environ['coin4']] = True
+          db[uname+"amount"] += 1
+          os.environ['coin4'] = str(random.randint(1, 1000000))
+        elif os.environ['coin5'] == found and db[uname+os.environ['coin5']] not in db.keys():
+          db[uname+os.environ['coin5']] = True
+          db[uname+"amount"] += 1
+          os.environ['coin5'] = str(random.randint(1, 1000000))
+        elif os.environ['coin6'] == found and db[uname+os.environ['coin6']] not in db.keys():
+          db[uname+os.environ['coin6']] = True
+          db[uname+"amount"] += 1
+          os.environ['coin6'] = str(random.randint(1, 1000000))
+        elif os.environ['coin7'] == found and db[uname+os.environ['coin7']] not in db.keys():
+          db[uname+os.environ['coin7']] = True
+          db[uname+"amount"] += 1
+          os.environ['coin7'] = str(random.randint(1, 1000000))
+        elif os.environ['coin8'] == found and db[uname+os.environ['coin8']] not in db.keys():
+          db[uname+os.environ['coin8']] = True
+          db[uname+"amount"] += 1
+          os.environ['coin8'] = str(random.randint(1, 1000000))
+        elif os.environ['coin9'] == found and db[uname+os.environ['coin9']] not in db.keys():
+          db[uname+os.environ['coin9']] = True
+          db[uname+"amount"] += 1
+          os.environ['coin9'] = str(random.randint(1, 1000000))
+        else:
+          print("You already have this token!")
         break
   elif mtl == "2":
     
