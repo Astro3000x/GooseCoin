@@ -52,6 +52,7 @@ elif ls == "1":
   elif db[uname+"password"] == pword:
     print("Logged In")
     db[uname] = uname
+    
   elif db[uname+"password"] != pword:
     print("PassWord Incorrect")
     exit()
@@ -61,12 +62,12 @@ else:
   exit()
 coinfound = False
 def menu():
-  print("1: Mine 2: Transfer 3: Account Info & Balance 4: Change Password 5: Log Out")
+  print("1: Mine 2: Transfer 3: Account Info & Balance 4: Change Password 5: Current Price 6: Log Out")
   mtl = input()
   def SHA256(text):
     return sha256(text.encode("ascii")).hexdigest()
     MAX_NONCE=10000000
-  coins = [SHA256(os.environ['coin2']), SHA256(os.environ['coin3']), SHA256(os.environ['coin4']), SHA256(os.environ['coin5']), SHA256(os.environ['coin6']), SHA256(os.environ['coin7']), SHA256(os.environ['coin8']), SHA256(os.environ['coin9'])]
+  coins = [SHA256(str(db["coin2"])), SHA256(str(db["coin3"])), SHA256(str(db["coin4"])), SHA256(str(db["coin5"])), SHA256(str(db["coin6"])), SHA256(str(db["coin7"])), SHA256(str(db["coin8"])), SHA256(str(db["coin9"]))]
 
   
   if mtl == "1":
@@ -79,7 +80,14 @@ def menu():
         db[uname+"key"+str(db[uname+"amount"])] = str(found)
         
         db[uname+"amount"] += 1
-        os.environ["coin2"] = str(random.randint(1, 100000000000))
+        db["coin2"] = random.randint(1, 100000000)
+        db["coin3"] = random.randint(1, 100000000)
+        db["coin4"] = random.randint(1, 100000000)
+        db["coin5"] = random.randint(1, 100000000)
+        db["coin6"] = random.randint(1, 100000000)
+        db["coin7"] = random.randint(1, 100000000)
+        db["coin8"] = random.randint(1, 100000000)
+        db["coin9"] = random.randint(1, 100000000)
         break
   elif mtl == "2":
     
@@ -112,6 +120,8 @@ def menu():
     else:
       print("Passwords do not match.")
   elif mtl == "5":
+    print("$2 (Live Price Updates: https://goosecoin.astro3000.dev)")
+  elif mtl == "6":
     print("Logging Out")
     time.sleep(2)
     exit()
